@@ -25,7 +25,6 @@ public class AuthController {
         String token = tokenService.generateToken(authentication);
         LOG.debug("token generated: {}", token);
         return token;
-
     }
 
 }
