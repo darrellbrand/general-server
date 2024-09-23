@@ -4,6 +4,8 @@ package com.djf.generalserver.controller;
 import com.djf.generalserver.model.Post;
 import com.djf.generalserver.model.PostRecord;
 import com.djf.generalserver.service.RepositoryService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,9 +20,11 @@ public class PostController {
         this.repositoryService = repositoryService;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/findAll")
-    public List<Post> findAll() {
-        return repositoryService.findAll();
+
+    public ResponseEntity<List<Post>> findAll() {
+        return new ResponseEntity<List<Post>>(repositoryService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping("/save")
