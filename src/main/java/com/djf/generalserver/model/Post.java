@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.core.parameters.P;
 
 @Data
 @Entity
@@ -18,12 +19,16 @@ public class Post {
 
     private String content;
 
-    public Post() {
+    private String description;
 
-    }
+    private String email;
 
-    public Post( String title, String content) {
+    public Post(){}
+
+    public Post( String title, String content, String description, String email) {
         this.title = title;
         this.content = content;
+        this.description = description;
+        this.email = email;
     }
 }

@@ -24,11 +24,11 @@ public class PostController {
     @GetMapping("/findAll")
 
     public ResponseEntity<List<Post>> findAll() {
-        return new ResponseEntity<List<Post>>(repositoryService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(repositoryService.findAll(), HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @PostMapping("/save")
-    public void savePost(@RequestParam String title, @RequestParam String content) {
-        repositoryService.savePost(new Post(title, content));
+    public ResponseEntity<Post> savePost(@RequestBody Post post) {
+        return new ResponseEntity<>(repositoryService.savePost(post), HttpStatus.CREATED);
     }
 }

@@ -22,8 +22,8 @@ public class RepositoryService {
         return postRepository.findAll();
     }
 
-    public void savePost(Post post) {
-        postRepository.save(post);
+    public Post savePost(Post post) {
+       return  postRepository.save(post);
     }
 
 }

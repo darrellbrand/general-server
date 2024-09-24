@@ -32,7 +32,7 @@ public class GeneralServerApplication {
             // Your startup logic here
             System.out.println("Application started with command-line arguments: " + Arrays.toString(args));
 
-            Post post = new Post("rad", "brohmassski");
+            Post post = new Post("radddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "brohmassski", "desc", "email");
             repositoryService.savePost(post);
             // You can also call services, repositories, etc. here
         };
