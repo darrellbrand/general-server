@@ -46,7 +46,6 @@ public class SecurityConfig {
                 }).csrf(AbstractHttpConfigurer::disable).sessionManagement(session -> {
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
                 }).httpBasic(Customizer.withDefaults())
-
                 .build();
     }
 
