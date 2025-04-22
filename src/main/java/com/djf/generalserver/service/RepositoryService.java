@@ -22,11 +22,19 @@ public class RepositoryService {
     public List<Post> findAll() {
         return postRepository.findAll();
     }
+
     public Optional<Post> getPost(int id) {
         return postRepository.findById(id);
     }
+
     public Post savePost(Post post) {
-       return  postRepository.save(post);
+        return postRepository.save(post);
+    }
+
+    public void deletePost(int id) {
+        postRepository.deleteById(id);
+        System.out.println(postRepository.findAll().size());
+
     }
 
 }

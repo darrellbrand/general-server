@@ -40,4 +40,10 @@ public class PostController {
         Optional<Post> ret = repositoryService.getPost(Integer.parseInt(id));
         return ret.map(post -> new ResponseEntity<>(post, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @PostMapping("/deletePost")
+    public ResponseEntity<Void> deletePost(@RequestParam String id) {
+        repositoryService.deletePost(Integer.parseInt(id));
+        return new ResponseEntity<>( HttpStatus.OK);
+    }
 }

@@ -9,4 +9,5 @@ public class TokenData {
     }
 
     String token;
+    String refreshToken;
 }
