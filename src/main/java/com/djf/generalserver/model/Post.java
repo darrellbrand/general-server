@@ -5,8 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.context.annotation.Primary;
-import org.springframework.security.core.parameters.P;
 
 @Data
 @Entity
@@ -23,12 +21,14 @@ public class Post {
 
     private String email;
 
+    private String imageUrl;
     public Post(){}
 
-    public Post( String title, String content, String description, String email) {
+    public Post( String title, String content, String description, String email, String image) {
         this.title = title;
         this.content = content;
         this.description = description;
         this.email = email;
+        this.imageUrl = image;
     }
 }

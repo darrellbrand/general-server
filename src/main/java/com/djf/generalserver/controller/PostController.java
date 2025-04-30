@@ -2,13 +2,14 @@ package com.djf.generalserver.controller;
 
 
 import com.djf.generalserver.model.Post;
-import com.djf.generalserver.model.PostRecord;
 import com.djf.generalserver.service.RepositoryService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +20,7 @@ public class PostController {
 
     public PostController(RepositoryService repositoryService) {
         this.repositoryService = repositoryService;
+
     }
 
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
@@ -46,4 +48,5 @@ public class PostController {
         repositoryService.deletePost(Integer.parseInt(id));
         return new ResponseEntity<>( HttpStatus.OK);
     }
+
 }
