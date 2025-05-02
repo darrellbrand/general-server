@@ -23,26 +23,26 @@ public class PostController {
 
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
     @GetMapping("/findAll")
 
     public ResponseEntity<List<Post>> findAll() {
         return new ResponseEntity<>(repositoryService.findAll(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
     @PostMapping("/save")
     public ResponseEntity<Post> savePost(@RequestBody Post post) {
         return new ResponseEntity<>(repositoryService.savePost(post), HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
     @GetMapping("/getPost")
     public ResponseEntity<Post> getPost(@RequestParam String id) {
         Optional<Post> ret = repositoryService.getPost(Integer.parseInt(id));
         return ret.map(post -> new ResponseEntity<>(post, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
     @PostMapping("/deletePost")
     public ResponseEntity<Void> deletePost(@RequestParam String id) {
         repositoryService.deletePost(Integer.parseInt(id));

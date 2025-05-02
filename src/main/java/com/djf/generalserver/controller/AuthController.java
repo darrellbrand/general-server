@@ -23,7 +23,7 @@ public class AuthController {
         this.tokenService = tokenService;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
     @PostMapping("/token")
     public ResponseEntity<TokenData> token(Authentication authentication, HttpServletResponse httpServletResponse) {
         LOG.debug("token requested for user: {}", authentication.getName());
