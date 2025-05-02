@@ -1,12 +1,12 @@
 # ----------- Stage 1: Build the application -------------
-FROM gradle:8.5-jdk19-alpine AS builder
+FROM gradle:8.5-jdk19 AS builder
 WORKDIR /app
 COPY . .
 RUN gradle build --no-daemon
 
 # ----------- Stage 2: Run the application ----------------
-FROM openjdk:19-alpine
-RUN addgroup -S spring && adduser -S spring -G spring
+FROM eclipse-temurin:19-jdk
+RUN addgroup --system spring && adduser --system --ingroup spring spring
 USER spring:spring
 WORKDIR /app
 COPY --from=builder /app/build/libs/GeneralServer-0.0.1-SNAPSHOT.jar app.jar
