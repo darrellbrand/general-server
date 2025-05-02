@@ -1,11 +1,11 @@
 # ----------- Stage 1: Build the application -------------
-FROM gradle:8.5-jdk17-alpine AS builder
+FROM gradle:8.5-jdk19-alpine AS builder
 WORKDIR /app
 COPY . .
 RUN gradle build --no-daemon
 
 # ----------- Stage 2: Run the application ----------------
-FROM openjdk:17-alpine
+FROM openjdk:19-alpine
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 WORKDIR /app
