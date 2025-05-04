@@ -13,7 +13,8 @@ COPY . .
 RUN ./gradlew clean bootJar --no-daemon
 
 # ----------- Stage 2: Run with JDK 21 on Alpine ----------------
-FROM openjdk:21-alpine
+
+FROM eclipse-temurin:21-jdk-alpine
 
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
