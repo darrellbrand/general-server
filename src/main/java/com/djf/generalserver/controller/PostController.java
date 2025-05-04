@@ -15,6 +15,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
+    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com/";
     private final RepositoryService repositoryService;
 
 
@@ -23,26 +24,26 @@ public class PostController {
 
     }
 
-    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
+    @CrossOrigin(origins = url, allowCredentials = "true")
     @GetMapping("/findAll")
 
     public ResponseEntity<List<Post>> findAll() {
         return new ResponseEntity<>(repositoryService.findAll(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
+    @CrossOrigin(origins = url, allowCredentials = "true")
     @PostMapping("/save")
     public ResponseEntity<Post> savePost(@RequestBody Post post) {
         return new ResponseEntity<>(repositoryService.savePost(post), HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
+    @CrossOrigin(origins = url, allowCredentials = "true")
     @GetMapping("/getPost")
     public ResponseEntity<Post> getPost(@RequestParam String id) {
         Optional<Post> ret = repositoryService.getPost(Integer.parseInt(id));
         return ret.map(post -> new ResponseEntity<>(post, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
-    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
+    @CrossOrigin(origins = url, allowCredentials = "true")
     @PostMapping("/deletePost")
     public ResponseEntity<Void> deletePost(@RequestParam String id) {
         repositoryService.deletePost(Integer.parseInt(id));

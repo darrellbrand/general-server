@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private static final Logger LOG = LoggerFactory.getLogger(AuthController.class);
     private final TokenService tokenService;
-
+    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com/";
     public AuthController(TokenService tokenService) {
         this.tokenService = tokenService;
     }
 
-    @CrossOrigin(origins = "https://inventory-frontend-62sl.onrender.com", allowCredentials = "true")
+    @CrossOrigin(origins = url, allowCredentials = "true")
     @PostMapping("/token")
     public ResponseEntity<TokenData> token(Authentication authentication, HttpServletResponse httpServletResponse) {
         LOG.debug("token requested for user: {}", authentication.getName());

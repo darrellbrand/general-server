@@ -24,7 +24,7 @@ import java.util.Arrays;
 @Component
 @EnableWebSecurity
 public class SecurityConfig {
-
+    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com/";
     JwtDecoder jwtDecoder;
     CorsConfigurationSource corsSource;
 
@@ -67,7 +67,7 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("https://inventory-frontend-62sl.onrender.com"));
+        configuration.setAllowedOrigins(Arrays.asList(url));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowCredentials(true);
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));

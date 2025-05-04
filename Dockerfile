@@ -1,7 +1,6 @@
-# ----------- Stage 1: Build with JDK 19 and Gradle 8.5 on Alpine -------------
-FROM openjdk:19-alpine as builder
+# ----------- Stage 1: Build with JDK 21 and Gradle 8.5 on Alpine -------------
+FROM openjdk:21-alpine as builder
 
-# Install dependencies and Gradle 8.5
 ENV GRADLE_VERSION=8.5
 
 RUN apk add --no-cache curl unzip bash \
@@ -13,8 +12,8 @@ WORKDIR /app
 COPY . .
 RUN gradle build --no-daemon
 
-# ----------- Stage 2: Run with JDK 19 on Alpine ----------------
-FROM openjdk:19-alpine
+# ----------- Stage 2: Run with JDK 21 on Alpine ----------------
+FROM openjdk:21-alpine
 
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
