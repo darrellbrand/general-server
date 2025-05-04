@@ -9,7 +9,7 @@ import java.util.Map;
 
 @RestController
 public class AIController {
-    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com/";
+    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com";
     @CrossOrigin(origins = url, allowCredentials = "true")
      @GetMapping("/api/ai/generate")
     public Map<String,String> generate(@RequestParam(value = "message", defaultValue = "Tell me a joke") String message) {

@@ -15,7 +15,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
-    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com/";
+    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com";
     private final RepositoryService repositoryService;
 
 

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private static final Logger LOG = LoggerFactory.getLogger(AuthController.class);
     private final TokenService tokenService;
-    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com/";
+    private final String url ="https://inventory-frontend-6c04aaa61769.herokuapp.com";
     public AuthController(TokenService tokenService) {
         this.tokenService = tokenService;
     }
