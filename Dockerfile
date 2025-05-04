@@ -10,7 +10,7 @@ RUN apk add --no-cache curl unzip bash \
 
 WORKDIR /app
 COPY . .
-RUN gradle build --no-daemon
+RUN ./gradlew bootJar --no-daemon
 
 # ----------- Stage 2: Run with JDK 21 on Alpine ----------------
 FROM openjdk:21-alpine
