@@ -1,5 +1,5 @@
-# ----------- Stage 1: Build with JDK 21 and Gradle 8.5 on Alpine -------------
-FROM openjdk:21-alpine as builder
+
+FROM eclipse-temurin:21-jdk-alpine as builder
 
 ENV GRADLE_VERSION=8.5
 
@@ -20,4 +20,4 @@ USER spring:spring
 WORKDIR /app
 COPY --from=builder /app/build/libs/GeneralServer-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Dserver.port=${PORT}", "-jar", "app.jar"]
