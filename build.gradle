@@ -24,7 +24,13 @@ repositories {
     maven { url 'https://repo.spring.io/milestone' }
 
 }
-
+tasks.bootJar {
+    manifest {
+        attributes(
+            'Main-Class': 'org.springframework.boot.loader.JarLauncher'
+        )
+    }
+}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
